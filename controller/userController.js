@@ -61,4 +61,29 @@ const deleteUser = async (req, res) => {
   res.status(200).json({ haya: "User deleted successfully" });
 };
 
-export { sendOk, createUser, login, getAll, getSingleUser, deleteUser };
+// @ update user
+const updateUser = async (req, res) => {
+  const { username, password } = req.body;
+  const { id: _id } = req.params;
+  const findUser = await User.findOne({ _id });
+
+  if (findUser) {
+    findUser.username = username || findUser.username;
+    findUser.password = password || findUser.password;
+
+    await findUser.save();
+    res.status(200).json(findUser);
+  } else {
+    res.status(404).json({ message: "User Not Found !" });
+  }
+};
+
+export {
+  sendOk,
+  createUser,
+  login,
+  getAll,
+  getSingleUser,
+  deleteUser,
+  updateUser,
+};

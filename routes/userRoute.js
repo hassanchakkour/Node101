@@ -1,6 +1,6 @@
 import express from "express";
 
-import { sendOk } from "../controller/userController.js";
+import { sendOk, updateUser } from "../controller/userController.js";
 import { createUser } from "../controller/userController.js";
 import { login } from "../controller/userController.js";
 import { getAll } from "../controller/userController.js";
@@ -20,5 +20,7 @@ router.get("/all", getAll);
 router.get("/single/:id", getSingleUser);
 
 router.post("/delete", deleteUser);
+
+router.put("/update/:id", updateUser);
 
 export default router;
