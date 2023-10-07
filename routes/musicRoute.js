@@ -11,7 +11,6 @@ router.post("/", createMusic);
 router.get("/all", getMusic);
 router.get("/single/:genre", getSingleMusic);
 router.delete("/delete", deleteGenre);
-router.put("/update/:id", updateMusic)
-
+router.put("/update/", updateMusic);
 
 export default router;
