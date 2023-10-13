@@ -7,6 +7,7 @@ import musicRoute from "./routes/musicRoute.js";
 import gameroute from "./routes/gameroute.js";
 import electronicsroute from "./routes/electronicsroute.js";
 import booksroute from "./routes/booksroute.js";
+import cookieParser from "cookie-parser";
 
 import connectDb from "./db.js";
 
@@ -16,6 +17,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use(cookieParser());
 
 connectDb();
 

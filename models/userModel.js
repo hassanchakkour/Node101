@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 
+const { SchemaTypes } = mongoose;
+
 const userSchema = mongoose.Schema({
   username: {
     type: String,
@@ -10,6 +12,14 @@ const userSchema = mongoose.Schema({
   password: {
     type: String,
     required: true,
+  },
+  favoriteMusic: {
+    type: [
+      {
+        type: SchemaTypes.ObjectId,
+        ref: "music",
+      },
+    ],
   },
 });
 
